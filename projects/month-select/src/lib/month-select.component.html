@@ -1,0 +1,28 @@
+
+<div class="dropdown">
+  <button (click)="toggleDropdown() ">
+    {{dateForm["controls"]["month"].value && dateForm["controls"]["year"].value ? months[parseInt(dateForm["controls"]["month"].value) - 1] + ' ' + dateForm["controls"]["year"].value : 'Sélectionner un mois'}}
+  </button>
+  <form class="dropdown__content" *ngIf="openDropdown" [formGroup]="dateForm" (change)="sendSelectValue()">
+    <div class="dropdown__content__input">
+      <label for="month">Mois</label>
+      <select
+        name="month"
+        id="month"
+        formControlName="month">
+        <option *ngFor="let month of months; index as i"
+                value="{{(i + 1 < 10 ? '0' : '') + (i +1)}}" [selected]="months[currentMonth]">{{month}}</option>
+      </select>
+    </div>
+    <div class="dropdown__content__input">
+      <label for="year">Année</label>
+      <select
+        name="year"
+        id="year"
+        formControlName="year">
+        <option *ngFor="let year of years" [selected]="currentYear">{{year}}</option>
+      </select>
+    </div>
+    <div (click)="resetValues()">Effacer</div>
+  </form>
+</div>

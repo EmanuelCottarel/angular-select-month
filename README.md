@@ -1,27 +1,32 @@
-# AngularMonthSelect
+_# Month-select
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.5.
+## What is it?
 
-## Development server
+Month-Select is a universal month type input, compatible with all browsers.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## How does it work?
 
-## Code scaffolding
+The component simply return a month date in the following format: YYYY-mm using an eventEmitter
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## How to get the value from the month select
 
-## Build
+parent-component.html
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+``` html
+<lib-month-select (selectValueEvent)="getMonth($event)"></lib-month-select>
+ ```
 
-## Running unit tests
+parent-component.ts
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+``` typescript
+ getMonth(month: string) {
+    console.log(month)
+  }
+ ```
 
-## Running end-to-end tests
+Output
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```
+ "2023-10"
+```
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
