@@ -1,4 +1,6 @@
-_# Month-select
+# Month-select
+
+[See on NPM](https://www.npmjs.com/package/month-select)
 
 ## What is it?
 
